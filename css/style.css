@@ -11,6 +11,7 @@ body {
     justify-content: center;
     background-color: #4f1d96;
     z-index: 1;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -20,7 +21,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-    overflow: hidden;
+    
 }
 
 .wrapper figure svg > * {
@@ -36,6 +37,11 @@ body {
 
 div{
 color: white;
+}
+
+figure{
+    transform: scale(75%);
+    transform: translateX(-100px) translateY(-100px);
 }
 
 .wrong-letters-container{
@@ -58,7 +64,7 @@ color: white;
 .word{
     display: flex;
     position: absolute;
-    bottom: 10px;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
 
@@ -86,7 +92,7 @@ span.letters{
     font-size: 4em;
     align-items: center;
     justify-content: center;
-    margin: 0 3px;
+    margin: 0 10px;
     letter-spacing: 10px;
 
 
@@ -104,6 +110,7 @@ popup-container{
     align-items: center;
     justify-content: center;
 
+
 }
 
 .popup{
@@ -112,19 +119,29 @@ popup-container{
     box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
     padding: 20px;
     text-align: center;
-    width: 200px;
+    width: 400px;
     height: 200px;
-    transform: translateY(-300px);
-
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    line-height: 40px;
+    position: absolute;
+    bottom: 50%;
+    top: 40%;
+    left: 40%;
+    right: 50%;
 }
 
 .popup button{
     cursor: pointer;
     background-color: white;
-    color: blue;
+    color: rgb(8, 8, 168);
     margin-top: 10px;
     padding: 12px 20px;
     font-size: 16px;
+    font-weight: 600;
+
 }
 
 .popup button:active{
@@ -143,7 +160,8 @@ popup-container{
     padding: 15px 20px;
     position: absolute;
     bottom: -50px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 2s ease-in-out;
+    display: none;
 }
 
 .notification-container p{
@@ -152,11 +170,13 @@ popup-container{
 }
 
 .notification-container.show{
-    transform: translateY(-200px);
+    transform: translateY(-400px);
+    display: inline-block;
 }
 
 .timer-container{
     display: none;
+    transform: translateX(-380px) translateY(-100px);
 }
 
 .timer{
@@ -174,10 +194,11 @@ font-size: 24px;
 
         cursor: pointer;
         background-color: white;
-        color: blue;
+        color: rgb(14, 14, 112);
         margin-top: 10px;
         padding: 12px 20px;
         font-size: 16px;
+        font-weight: 600;
     }
     
     .toggle-timer:active{

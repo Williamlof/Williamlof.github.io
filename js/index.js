@@ -1,7 +1,7 @@
 const wordEl = document.querySelector('.word');
 const wrongLettersEl = document.querySelector('.wrong-letters');
 const playAgainBtn = document.querySelector('#play-button');
-const popup = document.querySelector('.popup-container');
+const popup = document.querySelector('.popup');
 const notification = document.querySelector('.notification-container');
 const finalMessage = document.querySelector('#final-message');
 const bodyEl = document.querySelector('body');
@@ -22,6 +22,8 @@ let gameTimer
 
 const correctLetters = [];
 const wrongLetters = [];
+// låter hemsidan ta in tangenttryck.
+window.addEventListener('keydown', keyboardInput);
 
 // Funktion som ändar innehållet i wordEl till att motsvara inmatade 
 function displayWord() {
@@ -81,7 +83,7 @@ function showHangman() {
 
 // check if lost
 function youLost() {
-    finalMessage.innerText = `You lost! ;) The correct word was ${selectedWord}`;
+    finalMessage.innerText = `You lost! ;) The correct word was "${selectedWord}".`;
     popup.style.display = 'flex';
     bodyEl.style.background = 'rgba(0, 0, 0, 0.8)'
     window.removeEventListener('keydown', keyboardInput);
@@ -90,14 +92,17 @@ function youLost() {
 // show notification for pressing an already pressed letter.
 function showNotification() {
     notification.classList.add('show');
+
 // removes notification after 1500ms
     setTimeout(() => {
         notification.classList.remove('show');
-    }, 1500);
+
+    }, 2000);
 };
 
 
 // restart game and play again
+
 playAgainBtn.addEventListener('click', resetGame);
 
 function resetGame(){
@@ -155,6 +160,7 @@ function keyboardInput() {
                 showNotification();
             }
         }
+        console.log(letter)
     }
 };
 
