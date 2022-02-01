@@ -17,7 +17,7 @@ let selectedWord = words[Math.floor(Math.random() * words.length)];
 let incorrectGuess = 0;
 let timerModeActive = false;
 let wonGame = false;
-let gameTime = 60;
+let gameTime = 30;
 let gameTimer
 
 const correctLetters = [];
@@ -118,17 +118,20 @@ function resetGame(){
     wonGame = false;
     timerContainerEl.style.display = 'none';
     clearInterval(gameTimer)
-    gameTime = 59;   
-    //new word
-    selectedWord = words[Math.floor(Math.random() * words.length)];
+    gameTime = 29;
 
-    displayWord();
-
-    updateWrongLetter();
     // reset styles
     bodyEl.style.background = '#4f1d96'
     popup.style.display = 'none';
     window.addEventListener('keydown', keyboardInput);
+
+    //new word
+    selectedWord = words[Math.floor(Math.random() * words.length)];
+
+    displayWord();
+    updateWrongLetter();
+
+
 };
 // tar in tangent tryck motsvarande keyCode 65-90, utlämnar resterande.
 function keyboardInput() {
@@ -154,10 +157,11 @@ function keyboardInput() {
         }
     }
 };
+
 displayWord();
 
+// funktion som startar timer mode ifall den är avstängt, eller stänger av den ifall den är på.
 timerBtn.addEventListener('click', timerMode)
-
 function timerMode(){
     if(timerModeActive == true){
     resetGame();
