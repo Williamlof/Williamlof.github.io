@@ -43,8 +43,9 @@ function displayWord() {
     if (innerWord === selectedWord) {
         finalMessage.innerText = 'You win!';
         popup.style.display = 'flex';
+        popup.style.backgroundColor = ('rgb(23, 139, 23)')
         wonGame = true;
-        bodyEl.style.backgroundColor = 'rgba(66, 214, 91, 0.8)';
+
         window.removeEventListener('keydown', keyboardInput);
     }
 };
@@ -84,8 +85,8 @@ function showHangman() {
 // check if lost
 function youLost() {
     finalMessage.innerText = `You lost! ;) The correct word was "${selectedWord}".`;
+    popup.style.backgroundColor = ('rgb(139, 23, 23)')
     popup.style.display = 'flex';
-    bodyEl.style.background = 'rgba(0, 0, 0, 0.8)'
     window.removeEventListener('keydown', keyboardInput);
 };
 
@@ -126,7 +127,7 @@ function resetGame(){
     gameTime = 29;
 
     // reset styles
-    bodyEl.style.background = '#4f1d96'
+    popup.style.backgroundColor = ('rgb(139, 23, 23)')
     popup.style.display = 'none';
     window.addEventListener('keydown', keyboardInput);
 
