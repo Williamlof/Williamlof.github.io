@@ -42,7 +42,7 @@ color: white;
 figure{
     display: flex;
     justify-content: center;
-    transform: translateX(-100px) scale(80%);
+    transform: translateX(-100px) translateY(-50px) scale(80%);
 }
 
 .wrong-letters-container{
@@ -56,9 +56,9 @@ figure{
 }
 .wrong-letters-container p{
     margin: 0 0 5px;
-display: flex;
-height: 100px;
-width: auto;
+    display: flex;
+    height: 100px;
+    width: auto;
 }
 
 .wrong-letters-container span{
